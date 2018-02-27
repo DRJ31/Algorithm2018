@@ -6,7 +6,7 @@ long int factR(int n){
 }
 int main(){
     int number;
-    while(true){
+    while(true){//Check if the input number is positive
         printf("Please input a positive number: ");        
         scanf("%d", &number);
         if (number <= 0){

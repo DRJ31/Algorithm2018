@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define MAXLENGTH 50//The longest string the program could receive
 void reverseR(int length, char *str){
     if (length <= 1)
         return;
@@ -9,15 +11,10 @@ void reverseR(int length, char *str){
     reverseR(length - 2, str + 1);
 }
 int main(){
-    int length;
-    char *str;
-    printf("Please input the length of the string: ");
-    scanf("%d", &length);
-    getchar();
-    str = (char *)malloc(sizeof(char) * (length + 1));
+    char str[MAXLENGTH];
     puts("Please input the string: ");
-    fgets(str, length + 1, stdin);
-    reverseR(length, str);
+    fgets(str, MAXLENGTH, stdin);
+    reverseR(strlen(str), str);
     puts(str);
     return 0;
 }
