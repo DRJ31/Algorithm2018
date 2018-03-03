@@ -14,6 +14,7 @@ public class ReverseRecursive {
         ReverseRecursive reverse = new ReverseRecursive();
         System.out.println("Enter a string: ");
         String str = scan.nextLine();
+        scan.close();
         str = reverse.recursive(str);
         System.out.println(str);
     }

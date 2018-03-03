@@ -30,6 +30,7 @@ public class GCD {
                 break;
             System.out.println("Please input a natural number!");
         }
+        scan.close();
         System.out.printf("The greatest common divisor of %d and %d is %d\n", x, y, gcd.recursive(x, y));
     }
 }
