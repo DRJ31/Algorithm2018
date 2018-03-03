@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include "list.h"
 bool IsEmpty(Node *head){//Check if the ListNode is empty
-    if (head == NULL)
-        return true;
-    return false;
+    return head == NULL;
 }
 Node* InsertNode(Node **phead, int index, double x){
     Node *insert = (Node *)malloc(sizeof(Node));

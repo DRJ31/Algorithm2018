@@ -1,4 +1,4 @@
-package labone;
+package com.algorithm.labone;
 import java.util.Scanner;
 
 public class GCD {
