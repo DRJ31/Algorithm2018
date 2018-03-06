@@ -26,7 +26,7 @@ Node* InsertNode(Node **phead, int index, double x){
     }
     insert->next = next->next;//Insert to the Node
     next->next = insert;
-    return *phead;
+    return insert;
 }
 int FindNode(Node* head, double x){
     int pos = 1;//Suppose the first position is 1
