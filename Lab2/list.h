@@ -2,7 +2,6 @@ typedef struct node{
 	double data;
 	struct node* next; 
 } Node;
-Node* head;
 
 bool IsEmpty(Node* head);
 Node* InsertNode(Node** phead, int index, double x);
