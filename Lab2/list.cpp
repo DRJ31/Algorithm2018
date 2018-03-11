@@ -45,6 +45,7 @@ int DeleteNode(Node **phead, double x){
     if (present->data == x){//Check whether the head will be replaced
         *phead = next;
         free(present);
+        return pos;
     }
     while(present->next != NULL){//Find the Node which will be deleted
         pos++;
