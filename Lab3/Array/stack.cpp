@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
+/*
+** This version of stack use array to represent a stack
+*/
 bool CreateStack(Stack *stack, int size) {
 	if (size <= 0)
 		return false;
