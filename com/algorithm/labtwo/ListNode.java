@@ -33,13 +33,22 @@ public class ListNode {
         Node insert = new Node();
         insert.data = x;
         Node next = phead;
+        if (index < 0){
+            System.out.println("Please input a positive position!");
+            return phead;
+        }
         if (index == 0){//Insert before the first Node
             phead = insert;
             insert.next = next;
             return phead;
         }
-        for (int i = 1; i < index; i++)//Insert after n Nodes
+        for (int i = 1; i < index; i++){//Insert after n Nodes
+            if (next == null){
+                System.out.printf("Index %d out of range!", index);
+                return phead;
+            }
             next = next.next;
+        }
         insert.next = next.next;
         next.next = insert;
         return phead;
