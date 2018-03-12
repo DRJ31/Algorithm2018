@@ -45,18 +45,18 @@ bool Pop(Stack *stack, double *x) {//The "pop" operation of stack
 }
 void DisplayStack(Stack *stack) {
 	printf("Top --> ");
-	if (IsEmpty(stack)) {
+	if (IsEmpty(stack)) {//Print the last line if the stack is empty
 		printf("|---------------|\n");
 		return;
 	}
-	printf("%-7s%-9g|\n", "|", stack->head->values);
+	printf("%-7s%-9g|\n", "|", stack->head->values);//Print the top of stack
 	Node *next = stack->head->next;
-	for (int i = stack->top - 1; i > -1; i--) {
+	for (int i = stack->top - 1; i > -1; i--) {//Print the rest elements of stack
 		printf("%8s%-7s%-9g|\n", "", "|", next->values);
 		next = next->next;
 	}
-	printf("%9s---------------|\n", "|");
+	printf("%9s---------------|\n", "|");//Print the last line after printing elements in stack
 }
-void DestroyStack(Stack *stack) {
+void DestroyStack(Stack *stack) {//Free memory of stack after pop all the elements in stack
 	free(stack->head);
 }
