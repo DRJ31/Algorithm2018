@@ -1,0 +1,17 @@
+fun main(args: Array<String>){
+    val stack = Stack(5)
+    push(stack, 5.0)
+    push(stack, 6.5)
+    push(stack, -3.0)
+    push(stack, -8.0)
+    displayStack(stack)
+    if (top(stack) != null)
+        println("Top: ${top(stack)}")
+    pop(stack)
+    if (top(stack) != null)
+        println("Top: ${top(stack)}")
+    while (!isEmpty(stack))
+        pop(stack)
+    displayStack(stack)
+    destroyStack(stack)
+}
