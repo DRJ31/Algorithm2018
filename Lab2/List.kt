@@ -48,9 +48,8 @@ fun deleteNode(head: Node?, x: Double): Node?{
         return head
     var pos = 1
     var present = head
-    var next = present?.next
     if (present?.data == x)
-        return next
+        return present.next
     while (present?.next != null){
         pos++
         if (present.next?.data == x){
