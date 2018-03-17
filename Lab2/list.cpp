@@ -41,6 +41,8 @@ int FindNode(Node* head, double x){
 int DeleteNode(Node **phead, double x){
     int pos = 1;
     Node *present = *phead;
+    if (IsEmpty(present))
+        return 0;
     Node *next = present->next;
     if (present->data == x){//Check whether the head will be replaced
         *phead = next;
@@ -60,6 +62,10 @@ int DeleteNode(Node **phead, double x){
     return 0;//If cannot find, return 0
 }
 void DisplayList(Node *head){
+    if (IsEmpty(head)){
+        printf("The list is empty.");
+        return;
+    }
     printf("%g", head->data);//Print the first data
     head = head->next;
     while(head != NULL){
