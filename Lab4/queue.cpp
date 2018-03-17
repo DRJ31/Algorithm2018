@@ -34,7 +34,7 @@ bool Dequeue(Queue *queue, double *x) {//Delete the first element in the queue
 	if (IsEmpty(queue))//If the queue is empty, stop deleting elements in it
 		return false;
 	queue->front = (queue->front + 1) % queue->maxSize;//Find the position of queue's front
-	*x = queue->values[queue->front];
+	*x = queue->values[queue->front - 1];
 	queue->counter--;
 	return true;
 }
