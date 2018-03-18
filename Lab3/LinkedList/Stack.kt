@@ -1,8 +1,12 @@
 import java.text.DecimalFormat
 
+data class Node(val data: Double){
+    var next: Node? = null
+}
+
 data class Stack(val size: Int){
     val maxTop = size - 1
-    val values = arrayOfNulls<Double>(maxTop)
+    var head:Node? = null
     var top = -1
 }
 
@@ -19,7 +23,7 @@ fun top(stack: Stack): Double?{
         println("The stack is empty!")
         return null
     }
-    return stack.values[stack.top]
+    return stack.head?.data
 }
 
 fun push(stack: Stack, x: Double): Boolean{
@@ -27,7 +31,10 @@ fun push(stack: Stack, x: Double): Boolean{
         println("The stack is full, push failed.")
         return false
     }
-    stack.values[++stack.top] = x
+    val newNode = Node(x)
+    newNode.next = stack.head
+    stack.head = newNode
+    stack.top++
     return true
 }
 
@@ -36,6 +43,7 @@ fun pop(stack: Stack): Boolean{
         println("The stack is empty, pop failed.")
         return false
     }
+    stack.head = stack.head?.next
     stack.top--
     return true
 }
@@ -47,14 +55,20 @@ fun displayStack(stack: Stack){
         println("|---------------|")
         return
     }
-    System.out.printf("%-7s%-9s|\n", "|", df.format(stack.values[stack.top]))
-    for (i in (stack.top - 1) downTo 0)
-        System.out.printf("%8s%-7s%-9s|\n", "", "|", df.format(stack.values[i]))
+    System.out.printf("%-7s%-9s|\n", "|", df.format(stack.head?.data))
+    var next = stack.head?.next
+    while (next != null) {
+        System.out.printf("%8s%-7s%-9s|\n", "", "|", df.format(next.data))
+        next = next.next
+    }
     System.out.printf("%9s---------------|\n", "|")
 }
 
 fun destroyStack(stack: Stack){
-    for (i in stack.values.indices){
-        stack.values[i] = null
+    var next = stack.head?.next
+    while (stack.head != null){
+        stack.head = null
+        stack.head = next
+        next = stack.head?.next
     }
 }
