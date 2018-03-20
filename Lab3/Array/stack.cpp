@@ -50,4 +50,7 @@ void DisplayStack(Stack *stack) {
 }
 void DestroyStack(Stack *stack) {//Free memory of stack
 	free(stack->values);
+	stack->values = NULL;
+	stack->top = -1;
+	stack->maxTop = -1;
 }
