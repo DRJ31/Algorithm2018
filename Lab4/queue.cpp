@@ -66,4 +66,8 @@ void DisplayQueue(Queue *queue) {//Display the queue
 
 void DestroyQueue(Queue *queue) {
 	free(queue->values);
+	queue->front = 0;
+	queue->rear = -1;
+	queue->counter = 0;
+	queue->maxSize = 0;
 }

@@ -70,4 +70,7 @@ fun destroyQueue(queue: Queue){
     for (i in queue.values.indices){
         queue.values[i] = null
     }
+    queue.front = 0
+    queue.rear = -1
+    queue.counter = 0
 }

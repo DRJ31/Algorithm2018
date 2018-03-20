@@ -71,4 +71,5 @@ fun destroyStack(stack: Stack){
         stack.head = next
         next = stack.head?.next
     }
+    stack.top = -1
 }

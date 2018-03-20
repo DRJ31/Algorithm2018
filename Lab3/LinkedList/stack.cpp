@@ -59,4 +59,6 @@ void DisplayStack(Stack *stack) {
 }
 void DestroyStack(Stack *stack) {//Free memory of stack after pop all the elements in stack
 	free(stack->head);
+	stack->top = -1;
+	stack->maxTop = -1;
 }

@@ -57,4 +57,5 @@ fun destroyStack(stack: Stack){
     for (i in stack.values.indices){
         stack.values[i] = null
     }
+    stack.top = -1
 }
