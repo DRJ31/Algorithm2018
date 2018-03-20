@@ -43,6 +43,10 @@ bool Dequeue(Queue *queue, double *x) {//Delete the first element in the queue
 }
 
 void DisplayQueue(Queue *queue) {//Display the queue
+	if (IsEmpty(queue)){
+		puts("The queue is empty.");
+		return;
+	}
 	printf("front -->%8g\n", queue->values[queue->front]);
 	if (queue->front > queue->rear) {
 		for (int i = queue->front + 1; i < queue->maxSize; i++) {
