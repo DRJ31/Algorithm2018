@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
+
 int main(void) {
 	int occurrence;//The occurrence of deleted number
 	Node *head = (Node *)malloc(sizeof(Node));
