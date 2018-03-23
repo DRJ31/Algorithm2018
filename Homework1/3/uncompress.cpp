@@ -45,12 +45,6 @@ char *ReverseString(char *str) {//Reverse a string
 	return newString;
 }
 
-void InsertChar(char c, char *str) {//Insert a character into string
-	int len = strlen(str);//The length of string
-	str[len] = c;
-	str[len + 1] = '\0';
-}
-
 bool IsNumber(char c) {//Check if the character is a number
 	return c >= '0' && c <= '9';
 }

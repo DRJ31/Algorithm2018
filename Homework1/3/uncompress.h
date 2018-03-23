@@ -11,8 +11,6 @@ char *Uncompress(char *str);//Obtain the uncompressed string
 
 char *ReverseString(char *str);//Reverse a string
 
-void InsertChar(char c, char *str);//Insert a character into string
-
 bool IsNumber(char c);//Check if the character is a number
 
 bool IsLetter(char c);//Check if the character is a letter
