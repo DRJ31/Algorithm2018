@@ -1,10 +1,7 @@
-#include "T6s.h"
+#include "T6.h"
 
-unsigned long TenPow(int n) {/*Return the value of 10^n*/
-	if (n == 0)
-		return 1;
-	return 10 * TenPow(n - 1);
-}
+#define ARRAY_LENGTH 100000 //Length of random array
+#define RANDOM_RANGE 1000000 //Range of random number
 
 void InsertSort(int *A, int n) {/*The main process of merge sort*/
 	int key = A[0];//Key indicate the element which is finding position to insert
@@ -73,22 +70,20 @@ void Copy(int *A, int *B, int left, int right) {/*Copy the sorted array from B t
 
 int main() {
 	srand(time(NULL));
-	int tenFive = TenPow(5);//The value of 10^5
-	int tenSix = TenPow(6);//The value of 10^6
-	int *A1 = (int *)malloc(sizeof(int) * tenFive);//The array to store random numbers
-	int *A2 = (int *)malloc(sizeof(int) * tenFive);//The array to store a copy of random numbers
-	int *B = (int *)malloc(sizeof(int) * tenFive);//The array to temporarily store result for merge sort
-	for (int i = 0; i < tenFive; i++) {//Generate random numbers
-		A1[i] = (rand() * 30) % tenSix;//(RAND_MAX * 30) is approximate to 10^6
+	int *A1 = (int *)malloc(sizeof(int) * ARRAY_LENGTH);//The array to store random numbers
+	int *A2 = (int *)malloc(sizeof(int) * ARRAY_LENGTH);//The array to store a copy of random numbers
+	int *B = (int *)malloc(sizeof(int) * ARRAY_LENGTH);//The array to temporarily store result for merge sort
+	for (int i = 0; i < ARRAY_LENGTH; i++) {//Generate random numbers
+		A1[i] = (rand() * 30) % RANDOM_RANGE;//(RAND_MAX * 30) is approximate to 10^6
 	}
-	Copy(A2, A1, 0, tenFive - 1);//A copy of random number array
+	Copy(A2, A1, 0, ARRAY_LENGTH - 1);//A copy of random number array
 	/*Test of Insert Sort*/
 	int Istart = clock();//The start time of Insert Sort
-	InsertSort(A1, tenFive);
+	InsertSort(A1, ARRAY_LENGTH);
 	int Iend = clock();//The end time of Insert Sort
 	/*Test of Merge Sort*/
 	int Mstart = clock();//The start time of Merge Sort
-	MergeSort(A2, B, 0, tenFive - 1);
+	MergeSort(A2, B, 0, ARRAY_LENGTH - 1);
 	int Mend = clock();//The end time of Merge Sort
 	printf("The time cost of Insert Sort is: %dms\n", Iend - Istart);
 	printf("The time cost of Merge Sort is: %dms\n", Mend - Mstart);
