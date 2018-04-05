@@ -1,6 +1,6 @@
-#include "T6.h"
+#include "T6s.h"
 
-unsigned long TenPow(int n) {
+unsigned long TenPow(int n) {/*Return the value of 10^n*/
 	if (n == 0)
 		return 1;
 	return 10 * TenPow(n - 1);
@@ -26,7 +26,7 @@ void MergeSort(int *A, int *B, int left, int right) {/*The main process of merge
 	if (left == right)//When the part of array only have one element, do not sort
 		return;
 	if (right - left == 1) {//Sort the part of array when the part of array only have two elements
-		if (A[left] > A[right]) {
+		if (A[left] > A[right]) {//Switch the position of two numbers if it is not the right order
 			int tmp = A[left];
 			A[left] = A[right];
 			A[right] = tmp;
@@ -42,7 +42,8 @@ void MergeSort(int *A, int *B, int left, int right) {/*The main process of merge
 void Merging(int *A, int *B, int left, int center, int right) {/*Merge two sorted arrays*/
 	int size = sizeof(A) / sizeof(int);//The size of A
 	int i1 = left, i2 = center + 1, i3 = left;
-	/* i1 record the position of left part
+	/* 
+	** i1 record the position of left part
 	** i2 record the position of right part
 	** i3 record the position of B
 	*/
@@ -81,11 +82,11 @@ int main() {
 		A1[i] = (rand() * 30) % tenSix;//(RAND_MAX * 30) is approximate to 10^6
 	}
 	Copy(A2, A1, 0, tenFive - 1);//A copy of random number array
-								 /*Test of Insert Sort*/
+	/*Test of Insert Sort*/
 	int Istart = clock();//The start time of Insert Sort
 	InsertSort(A1, tenFive);
 	int Iend = clock();//The end time of Insert Sort
-					   /*Test of Merge Sort*/
+	/*Test of Merge Sort*/
 	int Mstart = clock();//The start time of Merge Sort
 	MergeSort(A2, B, 0, tenFive - 1);
 	int Mend = clock();//The end time of Merge Sort
