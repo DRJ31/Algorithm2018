@@ -1,3 +1,7 @@
+/*
+** MergeSort
+** Written by Renjie Deng in Apr 10th, 2018
+*/
 #include "T6.h"
 
 #define ARRAY_LENGTH 100000 //Length of random array
