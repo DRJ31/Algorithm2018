@@ -29,6 +29,9 @@ int main() {
 	HeapSort(arr2, ARRAYLENGTH);
 	double heapEnd = clock();//End time of heap sort
 	printf("Finish HeapSort in %gms\n", heapEnd - heapStart);
+	for (int i = 0; i < 100; i++) {
+		printf("%d ", arr1[i]);
+	}
 	return 0;
 }
 
@@ -44,7 +47,7 @@ void QuickSort(int *A, int left, int right) {
 		return;
 	}
 	Pivot(A, left, right);//Set Pivot
-	int i = left + 1, j = right - 1, pivot = A[right];
+	int i = left + 1, j = right - 2, pivot = A[right - 1];
 	while (true) {
 		while (A[i] < pivot)
 			i++;
@@ -58,7 +61,7 @@ void QuickSort(int *A, int left, int right) {
 		else
 			break;
 	}
-	Switch(&A[i], &A[right]);//Switch pivot and the first element which is bigger than pivot
+	Switch(&A[i], &A[right - 1]);//Switch pivot and the first element which is bigger than pivot
 	QuickSort(A, left, i - 1);
 	QuickSort(A, i + 1, right);
 }
@@ -68,8 +71,13 @@ void Pivot(int *A, int left, int right) {//Put the pivot to the end of array
 		Switch(&A[left], &A[(left + right) / 2]);
 	if (A[right] < A[left])
 		Switch(&A[left], &A[right]);
-	if (A[(left + right) / 2] < A[right])
+	if (A[(left + right) / 2] < A[right]) {
+		Switch(&A[(left + right) / 2], &A[right - 1]);
+	}
+	else {
+		Switch(&A[right - 1], &A[right]);
 		Switch(&A[(left + right) / 2], &A[right]);
+	}
 }
 
 void Switch(int *a, int *b) {//Switch the value of a and b
