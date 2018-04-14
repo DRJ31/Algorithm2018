@@ -29,9 +29,6 @@ int main() {
 	HeapSort(arr2, ARRAYLENGTH);
 	double heapEnd = clock();//End time of heap sort
 	printf("Finish HeapSort in %gms\n", heapEnd - heapStart);
-	for (int i = 0; i < 100; i++) {
-		printf("%d ", arr1[i]);
-	}
 	return 0;
 }
 
