@@ -169,33 +169,6 @@ void destroyTree(Node *root){
 	}
 }
 
-<<<<<<< HEAD
-Node* createNode(int x) {
-	Node *node = (Node *)malloc(sizeof(Node));
-	node->left = NULL;
-	node->right = NULL;
-	node->key = x;
-	node->height = 0;
-	return node;
-}
-
-Node* deleteMin(Node **proot) {
-	if ((*proot)->right == NULL)
-		return (*proot)->left;
-	Node *deleted;//Record the smallest node
-	if ((*proot)->right->left == NULL) {
-		deleted = (*proot)->right;
-		(*proot)->right = NULL;
-		return deleted;
-	}
-	*proot = (*proot)->right;
-	while ((*proot)->left->left != NULL)//Find the smallest node
-		*proot = (*proot)->left;
-	deleted = (*proot)->left;
-	(*proot)->left = NULL;
-	return deleted;
-}
-=======
 Node* createNode(Node **proot, int x) {
 	*proot = (Node *)malloc(sizeof(Node));
 	(*proot)->left = NULL;
@@ -267,4 +240,3 @@ int isBalance(Node *root) {
     }
     return 0;
 }
->>>>>>> fda663aefc8f2569ab94ce3291f99dccfb6c1ef4
