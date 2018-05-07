@@ -40,7 +40,7 @@ void main()
   printTree(root);
 
   printf("\n\nAfter deleting a node (5) with left and right children..\n");
-  free(deleteNode(&root,15));
+  free(deleteNode(&root,5));
   printTree(root);
 
   printf("\n\nAfter deleting a node (10) with left and right children..\n");

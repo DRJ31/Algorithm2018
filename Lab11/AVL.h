@@ -57,7 +57,7 @@ void printTree(Node * root);
 	root - pointer to the tree node
 */
 
-Node* createNode(int x);
+Node* createNode(Node **proot, int x);
 /*
  function:
 	create a new node
@@ -74,6 +74,10 @@ Node* deleteMin(Node **proot);
 	proot - the node you want to substitute with deleted node
 */
 
-bool unbalanced(Node *root);
+int isBalance(Node *root); //Check if the tree is balance and return type of unbalance
 
-void updateHeight();
+void leftRotate(Node *root);//Left rotate current tree
+
+void rightRotate(Node *root);//Right rotate current tree
+
+Node* deleteRoot(Node **proot);//Delete the selected root

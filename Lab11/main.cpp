@@ -3,11 +3,12 @@
 #include "AVL.h"
 
 
-void main() 
+int main()
 {
   Node * root = NULL;    
   
   int ins[]={16, 10, 21, 5, 12, 18, 24, 2, 8, 11, 15, 19, 23, 31, 1, 6, 9, 13, 22, 7};
+//    int ins[] = {4, 2, 6, 1, 3, 5, 7};
   int len = 20, x;
   for(int i=0; i<len; i++){
 	  printf("\nAfter inserting key %d..\n", ins[i]);
@@ -26,4 +27,5 @@ void main()
 	  scanf("%d",&x);
   }
   destroyTree(root);
+    return 0;
 }
